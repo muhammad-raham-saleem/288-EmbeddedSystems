@@ -1,0 +1,72 @@
+//Author: Muhammad Raham Saleem
+//contributors: Connor Crimmins
+//applies to the movement.c file where the robot is moved by a specific distance
+#include "movement.h"
+#include "open_interface.h"
+#include "lcd.h"
+
+
+double move_forward(oi_t *sensor_data, double distance_mm){
+double sum =0;
+
+//start moving
+oi_setWheels(100,100);
+
+//loop until distance is reached
+while(sum<distance_mm){
+
+    //update the sensor data 
+    oi_update(sensor_data);
+
+    //this adds the distance travelled in mm since the last call
+    sum += sensor_data->distance;
+
+    //collison detection and stops if a bumper is hit
+    if(sensor_data->bumpLeft || sensor_data->bumpRight){
+        oi_setWheels(0, 0);
+
+        return sum;
+    }
+}
+oi_setWheels(0, 0); //stop when distance is reached
+return sum;
+}
+double turn_right(oi_t *sensor, double degrees){
+    double startAngle=sensor->angle;
+    double turnedSoFar=0;
+    double angleDifference=0;
+    degrees=degrees*0.8;
+
+    oi_update(sensor);
+    oi_setWheels(-20,20);
+    angleDifference+=(fabs(sensor->angle)-fabs(startAngle));
+//    oi_update(sensor);
+//    turnedSoFar = sensor->angle -fabs(startAngle);
+
+    while(angleDifference < fabs(degrees)){
+//        timer_waitMillis(50);
+        //update the sensor data
+        oi_update(sensor);
+        angleDifference+=(fabs(sensor->angle)-fabs(startAngle));
+//        turnedSoFar = sensor->angle -fabs(startAngle);
+//        if(turnedSoFar<degrees){
+//            oi_setWheels(0,0);
+//        }
+
+    }
+    oi_setWheels(0,0);
+        return angleDifference;
+}
+double turn_left(oi_t *sensor, double degrees){
+    double currAngle=0;
+    oi_setWheels(30,-30);
+               currAngle= sensor -> angle;
+    while(currAngle<degrees){
+        //update the sensor data
+        oi_update(sensor);
+
+}
+    oi_setWheels(0,0);
+         return currAngle;
+
+}

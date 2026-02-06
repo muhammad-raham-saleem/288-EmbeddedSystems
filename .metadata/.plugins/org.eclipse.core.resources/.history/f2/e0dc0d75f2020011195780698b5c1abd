@@ -1,0 +1,120 @@
+//Author: Muhammad Raham Saleem
+//contributors: Connor Crimmins
+//applies to the movement.c file where the robot is moved by a specific distance
+#include "movement.h"
+#include "open_interface.h"
+#include "lcd.h"
+
+
+double move_forward(oi_t *sensor_data, double distance_mm){
+double sum =0;
+//distance_mm=distance_mm*1.03;
+char whichBumpHit = '\0';
+
+//start moving
+oi_setWheels(300,300);
+
+//loop until distance is reached
+while(sum<distance_mm){
+
+    //update the sensor data 
+    oi_update(sensor_data);
+
+    //this adds the distance travelled in mm since the last call
+    sum += sensor_data->distance;
+
+    //collison detection and stops if a bumper is hit
+    if(sensor_data->bumpLeft || sensor_data->bumpRight){
+        oi_setWheels(0,0);
+        if(sensor_data->bumpLeft){
+            whichBumpHit='L';
+        }
+        if(sensor_data->bumpRight){
+            whichBumpHit='R';
+        }
+        lcd_clear();
+        lcd_printf("Obstacle Detected");
+        oi_update(sensor_data);
+//        distanceTravelled+=sensor_data->distance;
+        double remaining = distance_mm-sum;
+        lcd_clear();
+        lcd_printf("Backing up!");
+        oi_setWheels(-100,-100);
+        double backingUp=0;
+        while(backingUp<150){
+            oi_update(sensor_data);
+
+            backingUp+=fabs(sensor_data->distance);
+        }
+
+//            remainingDist+=backingUp;
+        remaining+=(backingUp/1.6);
+        oi_setWheels(0, 0);
+        if(whichBumpHit=='R'){
+            lcd_clear();
+            lcd_printf("right bump detected");
+       turn_left(sensor_data,-90);
+         move_forward(sensor_data,250);
+         turn_right(sensor_data,90);
+        }else if(whichBumpHit=='L'){
+            lcd_clear();
+            lcd_printf("left bump detected");
+            turn_right(sensor_data,90);
+             move_forward(sensor_data,250);
+             turn_left(sensor_data,-90);
+        }
+        return sum+move_forward(sensor_data,remaining);
+
+       //distance travlled should not be more than remaining
+//        lcd_clear();
+//        lcd_printf("covering remaining distance");
+//        timer_waitMillis(50);
+//        remainingDist-=distanceTravelled;
+//                remainingDist-=backingUp;
+//                lcd_printf("%.2lf",remainingDist);
+//        move_forward(sensor_data,remainingDist);
+//        return sum;
+
+    }
+}
+oi_setWheels(0, 0); //stop when distance is reached
+return sum;
+}
+double turn_right(oi_t *sensor, double degrees){
+    double startAngle=sensor->angle;
+    double angleDifference=0;
+    degrees=degrees*0.9;
+
+    oi_update(sensor);
+    oi_setWheels(-100,100);
+    angleDifference+=(fabs(sensor->angle)-fabs(startAngle));
+
+
+    while(angleDifference < fabs(degrees)){
+
+        oi_update(sensor);
+        angleDifference+=(fabs(sensor->angle)-fabs(startAngle));
+
+    }
+    oi_setWheels(0,0);
+        return angleDifference;
+}
+double turn_left(oi_t *sensor, double degrees){
+    double startAngle=sensor->angle;
+      double angleDifference=0;
+      degrees=degrees*0.9;
+
+      oi_update(sensor);
+      oi_setWheels(100,-100);
+      angleDifference+=(fabs(sensor->angle)-fabs(startAngle));
+
+
+      while(angleDifference < fabs(degrees)){
+
+          oi_update(sensor);
+          angleDifference+=(fabs(sensor->angle)-fabs(startAngle));
+
+      }
+      oi_setWheels(0,0);
+          return angleDifference;
+}

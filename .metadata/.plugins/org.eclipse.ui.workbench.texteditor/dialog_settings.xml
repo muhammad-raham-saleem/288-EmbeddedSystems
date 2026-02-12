@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="backingUp"/>
+		<item key="selection" value=""/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="Got a "/>
+			<item value="got a key"/>
+			<item value="cyBot_send"/>
+			<item value="init_scan"/>
+			<item value="init"/>
 			<item value="backingUp"/>
 			<item value="-back"/>
 			<item value="distanceTr"/>
@@ -18,8 +23,6 @@
 			<item value="oi_set"/>
 			<item value="io_set"/>
 			<item value="distance"/>
-			<item value="oi_set_wheels"/>
-			<item value="sprint"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>

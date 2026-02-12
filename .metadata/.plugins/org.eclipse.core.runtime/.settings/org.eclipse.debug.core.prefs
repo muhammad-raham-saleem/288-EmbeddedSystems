@@ -3,4 +3,4 @@
 //org.eclipse.debug.core.PREFERRED_DELEGATES/org.eclipse.cdt.launch.postmortemLaunchType=org.eclipse.cdt.dsf.gdb.launch.coreCLaunch,debug,;
 //org.eclipse.debug.core.PREFERRED_DELEGATES/org.eclipse.cdt.launch.remoteApplicationLaunchType=org.eclipse.rse.remotecdt.dsf.debug,debug,;
 eclipse.preferences.version=1
-prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<watchExpressions>\r\n    <expression enabled\="true" text\="(*(sensor_data)).bumpRight"/>\r\n    <expression enabled\="true" text\="(*(sensor_data)).bumpLeft"/>\r\n    <expression enabled\="true" text\="(*(sensor_data)).angle"/>\r\n    <expression enabled\="true" text\="(*(sensor_data)).distance"/>\r\n    <expression enabled\="true" text\="remainingDist"/>\r\n    <expression enabled\="true" text\="distanceTravelled"/>\r\n    <expression enabled\="true" text\="backingUp"/>\r\n    <expression enabled\="true" text\="whichBumpHit"/>\r\n</watchExpressions>\r\n
+prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<watchExpressions/>\r\n

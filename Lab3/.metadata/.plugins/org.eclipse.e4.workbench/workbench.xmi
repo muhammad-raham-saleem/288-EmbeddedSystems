@@ -105,7 +105,7 @@
                   </children>
                 </children>
               </children>
-              <children xsi:type="basic:PartSashContainer" xmi:id="_pAcz4QLOEfGMZeGJyv2ZLQ" containerData="7500">
+              <children xsi:type="basic:PartSashContainer" xmi:id="_pAcz4QLOEfGMZeGJyv2ZLQ" containerData="7500" selectedElement="_pAcz4gLOEfGMZeGJyv2ZLQ">
                 <children xsi:type="basic:PartSashContainer" xmi:id="_pAcz4gLOEfGMZeGJyv2ZLQ" containerData="7000" selectedElement="_pAcz4wLOEfGMZeGJyv2ZLQ">
                   <children xsi:type="basic:PartSashContainer" xmi:id="_pAcz4wLOEfGMZeGJyv2ZLQ" containerData="5000" selectedElement="_pAcz5ALOEfGMZeGJyv2ZLQ" horizontal="true">
                     <children xsi:type="advanced:Placeholder" xmi:id="_pAcz5ALOEfGMZeGJyv2ZLQ" elementId="org.eclipse.ui.editorss" containerData="7500" ref="_pATC0ALOEfGMZeGJyv2ZLQ"/>
@@ -237,7 +237,7 @@
           <tags>org.eclipse.cdt.ui.editor.CEditor</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_w4zQIALOEfGMZeGJyv2ZLQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="tm4c123gh6pm.cmd" iconURI="platform:/plugin/com.ti.ccstudio.ui/icons/obj16/linker_command_file.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.ti.ccstudio.ui.cmdFileEditor&quot; name=&quot;tm4c123gh6pm.cmd&quot; partName=&quot;tm4c123gh6pm.cmd&quot; title=&quot;tm4c123gh6pm.cmd&quot; tooltip=&quot;U:\CprE288Workspace\lab2\tm4c123gh6pm.cmd&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/U:/CprE288Workspace/lab2/tm4c123gh6pm.cmd&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;0&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.ti.ccstudio.ui.cmdFileEditor&quot; name=&quot;tm4c123gh6pm.cmd&quot; partName=&quot;tm4c123gh6pm.cmd&quot; title=&quot;tm4c123gh6pm.cmd&quot; tooltip=&quot;U:\CprE288Workspace\lab2\tm4c123gh6pm.cmd&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.ide.FileStoreEditorInputFactory&quot; uri=&quot;file:/U:/CprE288Workspace/lab2/tm4c123gh6pm.cmd&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1275&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>removeOnHide</tags>
           <tags>com.ti.ccstudio.ui.cmdFileEditor</tags>
@@ -397,7 +397,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_o8_QIgLOEfGMZeGJyv2ZLQ" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_2RaTlwLOEfGJM7Gmb34TRQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_nNRA-QLOEfGMZeGJyv2ZLQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_-a8sdwgyEfG1E6Od7l25cg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_nNRA-QLOEfGMZeGJyv2ZLQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_o8_QIwLOEfGMZeGJyv2ZLQ" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -428,7 +428,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_o8_QKgLOEfGMZeGJyv2ZLQ" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_2Ri2eALOEfGJM7Gmb34TRQ" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_nNRAcALOEfGMZeGJyv2ZLQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_-bCzGAgyEfG1E6Od7l25cg" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_nNRAcALOEfGMZeGJyv2ZLQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_o8_QKwLOEfGMZeGJyv2ZLQ" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -3037,7 +3037,7 @@
   <addons xmi:id="_nL00lwLOEfGMZeGJyv2ZLQ" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
   <addons xmi:id="_nL00mALOEfGMZeGJyv2ZLQ" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_nL8JQALOEfGMZeGJyv2ZLQ" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
-  <addons xmi:id="_2HRgIQLOEfGJM7Gmb34TRQ" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+  <addons xmi:id="_IYS0IKimEeS11vbz3f9ezw" elementId="org.eclipse.ui.ide.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
   <addons xmi:id="_dz0JgGOlEeSMMaPQU2nlzw" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
   <categories xmi:id="_nNQ-8ALOEfGMZeGJyv2ZLQ" elementId="org.eclipse.team.ui.category.team" name="Version control (Team)" description="Actions that apply when working with a version control system"/>
   <categories xmi:id="_nNQ-8QLOEfGMZeGJyv2ZLQ" elementId="org.eclipse.ui.category.views" name="Views" description="Commands for opening views"/>

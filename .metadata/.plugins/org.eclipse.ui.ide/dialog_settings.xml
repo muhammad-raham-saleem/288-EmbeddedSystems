@@ -13,6 +13,8 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="U:\CPRE288\288-EmbeddedSystems\288-EmbeddedSystems\Lab4"/>
+			<item value="U:\CPRE288\288-EmbeddedSystems\288-EmbeddedSystems\Lab3"/>
 			<item value="U:\CprE288Workspace"/>
 		</list>
 	</section>

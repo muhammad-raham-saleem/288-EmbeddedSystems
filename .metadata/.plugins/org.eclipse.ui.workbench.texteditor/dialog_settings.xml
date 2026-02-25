@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value=".radialWidth"/>
+		<item key="selection" value="cyBot_uart_init_last_half"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="cyBot_uart_init_last_half"/>
+			<item value="0.90"/>
+			<item value="turn"/>
+			<item value="6"/>
+			<item value="FIX"/>
+			<item value="angleDifference+"/>
+			<item value="angleDifference "/>
+			<item value="angleD"/>
+			<item value="degrees"/>
+			<item value="85"/>
+			<item value="radialWidth"/>
+			<item value="3"/>
+			<item value="diff"/>
 			<item value=".radialWidth"/>
 			<item value="smalles"/>
-			<item value="j "/>
-			<item value="j"/>
-			<item value="start"/>
-			<item value="Got a "/>
-			<item value="got a key"/>
-			<item value="cyBot_send"/>
-			<item value="init_scan"/>
-			<item value="init"/>
-			<item value="backingUp"/>
-			<item value="-back"/>
-			<item value="distanceTr"/>
-			<item value="remainingDist"/>
-			<item value="remaining"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="-535"/>
-		<item key="DIALOG_Y_ORIGIN" value="367"/>
+		<item key="DIALOG_X_ORIGIN" value="-492"/>
+		<item key="DIALOG_Y_ORIGIN" value="736"/>
 		<item key="DIALOG_WIDTH" value="322"/>
 		<item key="DIALOG_HEIGHT" value="391"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|5|0|Segoe UI"/>

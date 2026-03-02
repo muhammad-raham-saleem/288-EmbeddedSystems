@@ -15,24 +15,24 @@
 void uart_init(void){
 	//TODO
   //enable clock to GPIO port B
-  SYSCTL_RCGCGPIO_R |= 0x11;
+  SYSCTL_RCGCGPIO_R |= 0x02;
 
   //enable clock to UART1
-  SYSCTL_RCGCUART_R |= 0x01;
+  SYSCTL_RCGCUART_R |= 0x02;
 
   //wait for GPIOB and UART1 peripherals to be ready
-  while ((SYSCTL_PRGPIO_R & 0x01) == 0) {};
-  while ((SYSCTL_PRUART_R & 0x01) == 0) {};
+  while ((SYSCTL_PRGPIO_R & 0x02) == 0) {};
+  while ((SYSCTL_PRUART_R & 0x02) == 0) {};
 
   //enable alternate functions on port B pins
-  GPIO_PORTB_AFSEL_R |= 0x11;
+  GPIO_PORTB_AFSEL_R |= 0x03;
 
   //enable digital functionality on port B pins
-  GPIO_PORTB_DEN_R |= 0x11;
+  GPIO_PORTB_DEN_R |= 0x03;
 
   //enable UART1 Rx and Tx on port B pins
-  GPIO_PORTB_PCTL_R = 0x11;
-
+  GPIO_PORTB_PCTL_R &= ~0xFF;
+  GPIO_PORTB_PCTL_R |= 0x11;
   //UARTSysClk = 16 MHz, ClkDiv = 16, Baud Rate = 115,200
 //  Calculate BRD:
 //  BRD=16,000,000/(16×115,200)=8.6806
@@ -45,7 +45,7 @@ void uart_init(void){
 
 
   //turn off UART1 while setting it up
-  UART1_CTL_R &= 0x00;
+  UART1_CTL_R &= ~0x01;
 
   //set baud rate
   //note: to take effect, there must be a write to LCRH after these assignments
@@ -56,7 +56,7 @@ void uart_init(void){
 
   //set frame, 8 data bits, 1 stop bit, no parity, no FIFO
   //note: this write to LCRH must be after the BRD assignments
-  UART1_LCRH_R = 0x60; //this may be wrong
+  UART1_LCRH_R =  0x60; //this may be wrong
 
   //use system clock as source
   //note from the datasheet UARTCCC register description:

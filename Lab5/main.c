@@ -36,117 +36,109 @@ void cyBot_sendFloat(float fl);
 
 #define MAX_CHARS 20
 
-//int main(void){
-//
-////    lcd_init();
-////    uart_init();
-//        button_init();
-//        timer_init(); // Must be called before lcd_init(), which uses timer functions
-//        lcd_init();
-//
-//      // initialize the cyBot UART1 before trying to use it
-//
-//      // (Uncomment ME for UART init part of lab)
-//         cyBot_uart_init_clean();  // Clean UART1 initialization, before running your UART1 GPIO init code
-//
-//        // Complete this code for configuring the GPIO PORTB part of UART1 initialization (your UART1 GPIO init code)
-//          SYSCTL_RCGCGPIO_R |= 0x11;
-//            while ((SYSCTL_PRGPIO_R &  0x10) == 0) {};
-//              GPIO_PORTB_DEN_R |= 0x11;
-//              GPIO_PORTB_AFSEL_R |=  0x11;
-//          GPIO_PORTB_PCTL_R &= 0x11;     // Force 0's in the desired locations
-//          GPIO_PORTB_PCTL_R |= 0x11;     // Force 1's in the desired locations
-//             // Or see the notes for a coding alternative to assign a value to the PCTL field
-//
-//        // (Uncomment ME for UART init part of lab)
-//             cyBot_uart_init_last_half();
-//    char buffer[MAX_CHARS + 1];
-//    int index = 0;
-//    char received;
-//
-//    while(1){
-//
-//        received = uart_receive();
-//
-//        /* PART 3: Echo character */
-//        uart_sendChar(received);
-//
-//        if(received == '\r'){      // ENTER pressed
-//
-//            uart_sendChar('\n');   // Move PuTTY to next line
-//
-//            buffer[index] = '\0';
-//
-//            lcd_clear();
-//            lcd_puts(buffer);
-//
-//            index = 0;
-//        }
-//        else{
-//
-//            buffer[index] = received;
-//            index++;
-//
-//            /* Display character and count */
-//            lcd_clear();
-//            lcd_putc(received);
-//            lcd_printf(" %d", index);
-//
-//            if(index == MAX_CHARS){
-//
-//                buffer[index] = '\0';
-//
-//                lcd_clear();
-//                lcd_puts(buffer);
-//
-//                index = 0;
-//            }
-//        }
-//    }
-//}
-int main(void) {
-    button_init();
-    timer_init(); // Must be called before lcd_init(), which uses timer functions
+int main(void){
+
+    timer_init();
     lcd_init();
+    uart_init();
+    button_init();
 
-  // initialize the cyBot UART1 before trying to use it
+    char buffer[MAX_CHARS + 1];
+    int index = 0;
+    char received;
 
-  // (Uncomment ME for UART init part of lab)
-     cyBot_uart_init_clean();  // Clean UART1 initialization, before running your UART1 GPIO init code
+    while(1){
 
-    // Complete this code for configuring the GPIO PORTB part of UART1 initialization (your UART1 GPIO init code)
-      SYSCTL_RCGCGPIO_R |= 0x11;
-        while ((SYSCTL_PRGPIO_R &  0x10) == 0) {};
-          GPIO_PORTB_DEN_R |= 0x11;
-          GPIO_PORTB_AFSEL_R |=  0x11;
-      GPIO_PORTB_PCTL_R &= 0x11;     // Force 0's in the desired locations
-      GPIO_PORTB_PCTL_R |= 0x11;     // Force 1's in the desired locations
-         // Or see the notes for a coding alternative to assign a value to the PCTL field
+        received = uart_receive();
 
-    // (Uncomment ME for UART init part of lab)
-         cyBot_uart_init_last_half();  // Complete the UART device configuration
+        if(received == '\r'){
 
-        // Initialize the scan
-        // Remember servo calibration function and variables from Lab 3
+            uart_sendChar('\r');
+            uart_sendChar('\n');
 
-    // YOUR CODE HERE
-           // initialization
+            buffer[index] = '\0';
 
-           lcd_init();
-           cyBOT_init_Scan(0b0111);
+            lcd_clear();
+            lcd_puts(buffer);
 
+            uart_sendStr("You typed: ");
+            uart_sendStr(buffer);
+            uart_sendStr("\r\n");
 
-           cyBOT_SERVO_cal();
+            index = 0;
+        }
+        else{
 
-    while(1)
-    {
+            uart_sendChar(received);
 
-      // YOUR CODE HERE
+            if(index < MAX_CHARS){
+                buffer[index] = received;
+                index++;
+            }
 
+            buffer[index] = '\0';
 
+            lcd_clear();
+            lcd_printf("%s\n%d", buffer, index);
+
+            if(index == MAX_CHARS){
+
+                uart_sendStr("\r\nBuffer full!\r\n");
+                uart_sendStr("Message: ");
+                uart_sendStr(buffer);
+                uart_sendStr("\r\n");
+
+                lcd_clear();
+                lcd_puts(buffer);
+
+                index = 0;
+            }
+        }
     }
-
 }
+//int main(void) {
+//    button_init();
+//    timer_init(); // Must be called before lcd_init(), which uses timer functions
+//    lcd_init();
+//
+//  // initialize the cyBot UART1 before trying to use it
+//
+//  // (Uncomment ME for UART init part of lab)
+//     cyBot_uart_init_clean();  // Clean UART1 initialization, before running your UART1 GPIO init code
+//
+//    // Complete this code for configuring the GPIO PORTB part of UART1 initialization (your UART1 GPIO init code)
+//      SYSCTL_RCGCGPIO_R |= 0x11;
+//        while ((SYSCTL_PRGPIO_R &  0x10) == 0) {};
+//          GPIO_PORTB_DEN_R |= 0x11;
+//          GPIO_PORTB_AFSEL_R |=  0x11;
+//      GPIO_PORTB_PCTL_R &= 0x11;     // Force 0's in the desired locations
+//      GPIO_PORTB_PCTL_R |= 0x11;     // Force 1's in the desired locations
+//         // Or see the notes for a coding alternative to assign a value to the PCTL field
+//
+//    // (Uncomment ME for UART init part of lab)
+//         cyBot_uart_init_last_half();  // Complete the UART device configuration
+//
+//        // Initialize the scan
+//        // Remember servo calibration function and variables from Lab 3
+//
+//    // YOUR CODE HERE
+//           // initialization
+//
+//           lcd_init();
+//           cyBOT_init_Scan(0b0111);
+//
+//
+//           cyBOT_SERVO_cal();
+//
+//    while(1)
+//    {
+//
+//      // YOUR CODE HERE
+//
+//
+//    }
+//
+//}
 
 
 //this is lab 4

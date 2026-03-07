@@ -56,7 +56,7 @@ void uart_init(void){
 
   //set frame, 8 data bits, 1 stop bit, no parity, no FIFO
   //note: this write to LCRH must be after the BRD assignments
-  UART1_LCRH_R =  0x60; //this may be wrong
+  UART1_LCRH_R =  0x60;
 
   //use system clock as source
   //note from the datasheet UARTCCC register description:

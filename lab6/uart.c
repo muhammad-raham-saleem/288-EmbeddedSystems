@@ -88,23 +88,14 @@ char uart_receive(void){
     return (char)(UART1_DR_R & 0xFF);
 }
 
-//char uart_nonblocking_receive(void){
-//
-//    while(U){};   // Wait while RXFE (Receive FIFO empty)
-//
-//    return (char)(UART1_DR_R & 0xFF);
-//}
-// Returns 1 if data is available, 0 otherwise
-int uart_available(void) {
-    return !(UART1_FR_R & 0x10); // Returns 1 if RXFE is 0 (not empty)
-}
+
 
 // Revised function
 char uart_receive_nonblocking(void) {
-    if(uart_available()) {
-        return (char)(UART1_DR_R & 0xFF);
-    }
+    if(UART1_FR_R & UART_FR_RXFE) {
     return 0; // Return 0 if nothing received
+    }
+        return (char)(UART1_DR_R & 0xFF);
 }
 void uart_sendStr(const char *data){
 

@@ -78,7 +78,7 @@ int main(void){
 
             buffer[index] = '\0';
 
-            lcd_clear();
+//            lcd_clear();
             lcd_printf("%s\n%d", buffer, index);
 
             if(index == MAX_CHARS){
